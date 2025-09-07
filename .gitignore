@@ -1,0 +1,16 @@
+# Rust build output
+**/target/
+
+# documentation
+**/doc/
+
+# Cargo lock files (optional: only for libraries)
+**/Cargo.lock
+
+# IntelliJ / CLion / RustRover
+.idea/
+**/.idea/
+
+# VS Code
+.vscode/
+**/.vscode/

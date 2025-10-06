@@ -1,0 +1,20 @@
+use std::env;
+use std::process;
+
+use minigrep::Config;
+
+fn main() {
+    let args: Vec<String> = env::args().collect();
+
+    let config = Config::build(&args).unwrap_or_else(|err| {
+        eprintln! ("解析参数时遇到问题：{err}");
+        process::exit(1);
+    });
+
+    println! ("在文件 {} 中检索：{}", config.file_path, config.query);
+
+    if let Err(e) = minigrep::run(config) {
+        eprintln! ("解析参数时遇到问题：{e}");
+        process::exit(1);
+    }
+}
